@@ -1,0 +1,2 @@
+/Users/spencerhurd/Sources/Android/Kotlin Koans/Properties/Delegates how it works/src/MyDate.kt
+/Users/spencerhurd/Sources/Android/Kotlin Koans/Properties/Delegates how it works/src/Task.kt

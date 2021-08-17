@@ -1,0 +1,2 @@
+/Users/spencerhurd/Sources/Android/Kotlin Koans/Collections/Sequences/src/Shop.kt
+/Users/spencerhurd/Sources/Android/Kotlin Koans/Collections/Sequences/src/Task.kt

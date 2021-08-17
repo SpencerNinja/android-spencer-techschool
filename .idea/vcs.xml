@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/about-me" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/andfun-kotlin-android-trivia" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/color-my-views" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dice-roller" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/fragment_lifecycle" vcs="Git" />
+  </component>
+</project>

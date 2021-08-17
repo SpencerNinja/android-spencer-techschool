@@ -1,0 +1,2 @@
+/Users/spencerhurd/Sources/Android/Kotlin Koans/Collections/Max min/src/Shop.kt
+/Users/spencerhurd/Sources/Android/Kotlin Koans/Collections/Max min/src/Task.kt

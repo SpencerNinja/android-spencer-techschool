@@ -1,0 +1,2 @@
+/Users/spencerhurd/Sources/Android/Kotlin Koans/Collections/All Any and other predicates/src/Shop.kt
+/Users/spencerhurd/Sources/Android/Kotlin Koans/Collections/All Any and other predicates/src/Task.kt

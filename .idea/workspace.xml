@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d0e63417-6dc4-46e5-a458-25b5d51299f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/about-me/AboutMe/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/about-me/AboutMe/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/about-me/AboutMe/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/color-my-views/ColorMyViews/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about-me/AboutMe/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/about-me/AboutMe/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about-me/AboutMe/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/about-me/AboutMe/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/color-my-views/ColorMyViews/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/color-my-views/ColorMyViews/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/color-my-views/ColorMyViews/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/color-my-views/ColorMyViews/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fragment_lifecycle/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fragment_lifecycle/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fragment_lifecycle/app/src/main/java/com/example/android/dessertpusher/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/fragment_lifecycle/app/src/main/java/com/example/android/dessertpusher/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fragment_lifecycle/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/fragment_lifecycle/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fragment_lifecycle/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fragment_lifecycle/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fragment_lifecycle/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fragment_lifecycle/local.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/about-me" />
+  </component>
+  <component name="ProjectId" id="1uJiexHagHoGGL13GMrZvU7KKFl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d0e63417-6dc4-46e5-a458-25b5d51299f5" name="Default Changelist" comment="" />
+      <created>1624390191198</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1624390191198</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
