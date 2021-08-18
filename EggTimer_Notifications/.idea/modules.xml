@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/notifications-eggtimer.iml" filepath="$PROJECT_DIR$/.idea/modules/notifications-eggtimer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/notifications-eggtimer.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/notifications-eggtimer.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/EggTimer_Notifications.iml" filepath="$PROJECT_DIR$/.idea/modules/EggTimer_Notifications.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/EggTimer_Notifications.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/EggTimer_Notifications.app.iml" />
     </modules>
   </component>
 </project>
