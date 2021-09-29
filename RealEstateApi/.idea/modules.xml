@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/real-estate-api.iml" filepath="$PROJECT_DIR$/.idea/modules/real-estate-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/real-estate-api.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/real-estate-api.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RealEstateApi.iml" filepath="$PROJECT_DIR$/.idea/modules/RealEstateApi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/RealEstateApi.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/RealEstateApi.app.iml" />
     </modules>
   </component>
 </project>

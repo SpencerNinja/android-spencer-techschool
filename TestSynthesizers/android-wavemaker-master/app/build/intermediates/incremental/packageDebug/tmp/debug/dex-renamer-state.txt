@@ -1,0 +1,7 @@
+#Thu Sep 23 16:03:56 MDT 2021
+base.1=/Users/spencerhurd/Sources/Android/Test Synthesizers/android-wavemaker-master/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
+path.1=classes.dex
+base.0=/Users/spencerhurd/Sources/Android/Test Synthesizers/android-wavemaker-master/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+path.0=classes.dex

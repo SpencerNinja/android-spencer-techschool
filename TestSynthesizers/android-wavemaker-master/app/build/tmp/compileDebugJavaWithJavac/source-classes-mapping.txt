@@ -1,0 +1,4 @@
+com/example/wavemaker/MainActivity.java
+ com.example.wavemaker.MainActivity
+com/example/wavemaker/BuildConfig.java
+ com.example.wavemaker.BuildConfig

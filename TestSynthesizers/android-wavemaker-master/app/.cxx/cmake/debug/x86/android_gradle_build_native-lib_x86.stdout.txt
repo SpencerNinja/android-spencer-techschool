@@ -1,0 +1,2 @@
+ninja: Entering directory `/Users/spencerhurd/Sources/Android/Test Synthesizers/android-wavemaker-master/app/.cxx/cmake/debug/x86'
+ninja: no work to do.
