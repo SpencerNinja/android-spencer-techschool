@@ -2,141 +2,58 @@ package com.example.testaudio
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-
-
 import com.karlotoy.perfectune.instance.PerfectTune
-import android.media.AudioFormat;
-import android.media.AudioManager;
-import android.media.AudioTrack;
 import android.os.CountDownTimer
 import android.view.View
+import android.widget.Toast
 import java.util.*
-
 
 class MainActivity : AppCompatActivity() {
 
-    // Timer
-    var START_MILLI_SECONDS = 1000L
-    lateinit var countdown_timer: CountDownTimer
-    var isRunning: Boolean = false
-    var time_in_milli_seconds = 0L
-//    var timer = Timer()
+    var listOfFreq = listOf(440.0, 523.2511, 587.3295, 659.2551, 783.9909)
+    var listOfPlayers = mutableListOf<PerfectTune>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        for (freq in listOfFreq) {
+            var player = PerfectTune()
+            player.tuneFreq = freq
+            listOfPlayers.add(player)
+        }
+
     }
 
-    // Instantiate the PerfectTune object
-    var perfectTune = PerfectTune()
-    var perfectTuneC5 = PerfectTune()
-    var perfectTuneD5 = PerfectTune()
-    var perfectTuneE5 = PerfectTune()
-    var perfectTuneG5 = PerfectTune()
-
+    var perfectTuneTest = PerfectTune()
     fun playTune(view: View) {
         if (view.id == R.id.button_sound_play) {
-            // Instantiate the PerfectTune object
-            perfectTune = PerfectTune()
-            // set your desired frequency
-            perfectTune.tuneFreq = 440.0
-            // set the amplitude (default 10000)
-            perfectTune.tuneAmplitude = 10000
-
-            perfectTuneC5.tuneFreq = 523.2511
-            perfectTuneD5.tuneFreq = 587.3295
-            perfectTuneE5.tuneFreq = 659.2551
-            perfectTuneG5.tuneFreq = 783.9909
-
-            // C5
-            object : CountDownTimer(500, 1000) {
-                override fun onTick(millisUntilFinished: Long) {
-                    perfectTuneC5.playTune()
-                }
-                override fun onFinish() {
-                    perfectTuneC5.stopTune()
-                    // D5
-                    object : CountDownTimer(500, 1000) {
-                        override fun onTick(millisUntilFinished: Long) {
-                            perfectTuneD5.playTune()
-                        }
-                        override fun onFinish() {
-                            perfectTuneD5.stopTune()
-                            // E5
-                            object : CountDownTimer(1000, 1000) {
-                                override fun onTick(millisUntilFinished: Long) {
-                                    perfectTuneE5.playTune()
-                                }
-                                override fun onFinish() {
-                                    perfectTuneE5.stopTune()
-                                    // G5
-                                    object : CountDownTimer(1000, 1000) {
-                                        override fun onTick(millisUntilFinished: Long) {
-                                            perfectTuneG5.playTune()
-                                        }
-                                        override fun onFinish() {
-                                            perfectTuneG5.stopTune()
-                                            // E5
-                                            object : CountDownTimer(1000, 1000) {
-                                                override fun onTick(millisUntilFinished: Long) {
-                                                    perfectTuneE5.playTune()
-                                                }
-                                                override fun onFinish() {
-                                                    perfectTuneE5.stopTune()
-                                                    // D5
-                                                    object : CountDownTimer(1000, 1000) {
-                                                        override fun onTick(millisUntilFinished: Long) {
-                                                            perfectTuneD5.playTune()
-                                                        }
-                                                        override fun onFinish() {
-                                                            perfectTuneD5.stopTune()
-                                                            // C5
-                                                            object : CountDownTimer(1000, 1000) {
-                                                                override fun onTick(millisUntilFinished: Long) {
-                                                                    perfectTuneC5.playTune()
-                                                                }
-                                                                override fun onFinish() {
-                                                                    perfectTuneC5.stopTune()
-                                                                }
-                                                            }.start()
-                                                        }
-                                                    }.start()
-                                                }
-                                            }.start()
-                                        }
-                                    }.start()
-                                }
-                            }.start()
-                        }
-                    }.start()
-                }
-            }.start()
-
-
-
-
-
+            for () {
+                
+            }
+            for (freq in listOfFreq) {
+                perfectTuneTest = PerfectTune()
+                perfectTuneTest.tuneAmplitude = 10000
+                object : CountDownTimer(500, 1000) {
+                    override fun onTick(millisUntilFinished: Long) {
+                        perfectTuneTest.tuneFreq = freq
+                        perfectTuneTest.playTune()
+                        Toast.makeText(this@MainActivity, "Freq $freq played", Toast.LENGTH_SHORT).show()
+                    }
+                    override fun onFinish() {
+                        perfectTuneTest.stopTune()
+                    }
+                }.start()
+            }
+            perfectTuneTest.stopTune()
         }
     }
 
     fun stopTune(view: View) {
         if (view.id == R.id.button_sound_stop) {
             //stops the tune
-            perfectTune.stopTune()
+            perfectTuneTest.stopTune()
         }
-    }
-
-    fun startTimer(time_in_seconds: Long) {
-        countdown_timer.start()
-    }
-
-    fun pauseTimer() {
-
-    }
-
-    fun resetTimer() {
-        time_in_milli_seconds = START_MILLI_SECONDS
     }
 
 }
