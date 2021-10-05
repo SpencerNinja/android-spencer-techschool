@@ -21,8 +21,6 @@ class Working1 : AppCompatActivity() {
     var perfectTuneE5 = PerfectTune()
     var perfectTuneG5 = PerfectTune()
 
-    var listOfFreq = listOf(440.0, 523.2511, 587.3295, 659.2551, 783.9909)
-    var perfectTuneTest = PerfectTune()
     fun playTune(view: View) {
         if (view.id == R.id.button_sound_play) {
             // Instantiate the PerfectTune object
