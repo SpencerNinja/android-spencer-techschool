@@ -66,7 +66,7 @@ data class Motorcycle(
 
 // 9: This enum will have coupe, sedan, suv, pickup, diesel, semi, dirt, bullet, road
 // 10: If it makes more sense, you can write a nested enum for this instead
-enum class VehicleType(subtype: VehicleSubType) {
+enum class VehicleType(val subtype: VehicleSubType) {
     coupe(VehicleSubType.car),
     sedan(VehicleSubType.car),
     suv(VehicleSubType.car),
@@ -106,16 +106,11 @@ class Garage<T: Vehicle>(var listOfVehicles: MutableList<T> = mutableListOf()) {
     fun calcFee(newVehicle: Vehicle): Int {
         var cost: Int = 0
         var days: Int = calcDays()
-        cost = when (newVehicle.style) {
-            VehicleType.coupe -> return 18 * days
-            VehicleType.sedan -> return 18 * days
-            VehicleType.suv -> return 18 * days
-            VehicleType.pickup -> return 25 * days
-            VehicleType.diesel -> return 25 * days
-            VehicleType.semi -> return 25 * days
-            VehicleType.dirt -> return 15 * days
-            VehicleType.bullet -> return 15 * days
-            VehicleType.road -> return 15 * days
+        var motorcycleFee = 15; var carFee = 18; var truckFee = 25
+        cost = when (newVehicle.style.subtype) {
+            VehicleSubType.car -> return carFee * days
+            VehicleSubType.truck -> return truckFee * days
+            VehicleSubType.motorcycle -> return motorcycleFee * days
         }
         return cost
     }
