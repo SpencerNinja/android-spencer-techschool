@@ -38,6 +38,7 @@ interface Vehicle {
     var year: Int
     var make: String
     var color: String
+    var style: VehicleType
 }
 
 // 5: Write data classes for Car, Truck and Motorcycle.
@@ -45,41 +46,44 @@ interface Vehicle {
 // 7: You may want to give each class property an initial value
 // 8: Each class will have a private constructor variable called style; a VehicleType enum
 data class Car(
-    private var style: VehicleType.Car,
+//    private var subStyle: VehicleSubType,
     override var id: Int,
     override var year: Int,
     override var make: String,
-    override var color: String) : Vehicle {}
+    override var color: String,
+    override var style: VehicleType) : Vehicle {}
 data class Truck(
-    private var style: VehicleType.Truck,
+//    private var subStyle: VehicleSubType,
     override var id: Int,
     override var year: Int,
     override var make: String,
-    override var color: String) : Vehicle {}
+    override var color: String,
+    override var style: VehicleType) : Vehicle {}
 data class Motorcycle(
-    private var style: VehicleType.Motorcycle,
+//    private var subStyle: VehicleSubType,
     override var id: Int,
     override var year: Int,
     override var make: String,
-    override var color: String) : Vehicle {}
+    override var color: String,
+    override var style: VehicleType) : Vehicle {}
 
 // 9: This enum will have coupe, sedan, suv, pickup, diesel, semi, dirt, bullet, road
 // 10: If it makes more sense, you can write a nested enum for this instead
-enum class VehicleType {
-    ;
-    enum class Car {
-        coupe, sedan, suv
-    }
-    enum class Truck {
-        pickup,
-        diesel,
-        semi
-    }
-    enum class Motorcycle {
-        dirt,
-        bullet,
-        road
-    }
+enum class VehicleType(subtype: VehicleSubType) {
+    coupe(VehicleSubType.car),
+    sedan(VehicleSubType.car),
+    suv(VehicleSubType.car),
+    pickup(VehicleSubType.truck),
+    diesel(VehicleSubType.truck),
+    semi(VehicleSubType.truck),
+    dirt(VehicleSubType.motorcycle),
+    bullet(VehicleSubType.motorcycle),
+    road(VehicleSubType.motorcycle),
+}
+enum class VehicleSubType {
+    car,
+    truck,
+    motorcycle
 }
 
 // 11: Write a generic class called ‘Garage’ which has a type parameter constrained to ‘Vehicle’
@@ -91,7 +95,7 @@ class Garage<T: Vehicle>(var listOfVehicles: MutableList<T> = mutableListOf()) {
     fun store(vehicle: T, weeks: Int, completion: (numOfWeeks: Int) -> Unit) {
         numOfWeeks = weeks
         listOfVehicles.add(vehicle)
-        completion(calcFee())
+        completion(calcFee(vehicle))
     }
     // 15: Write at least one more useful method for Garage. Can be generic or non
     fun remove(vehicle: Vehicle) {
@@ -102,22 +106,21 @@ class Garage<T: Vehicle>(var listOfVehicles: MutableList<T> = mutableListOf()) {
         return numOfDays
     }
     // Flat fees are: $15 - Motorcycle, $18 - Car, $25 - Truck per day
-    fun calcFee(): Int {
-        var cost: Int = -1
+    fun calcFee(newVehicle: Vehicle): Int {
+        var cost: Int = 0
         var days: Int = calcDays()
-        for (vehicle in VehicleType.values()) {
-            if (vehicle == VehicleType.valueOf("motorcycle")) {
-                cost = 15
-            } else if (vehicle == VehicleType.valueOf("car")) {
-                cost = 18
-            } else if (vehicle == VehicleType.valueOf("truck")) {
-                cost = 25
-            } else {
-                println("Error: Vehicle Type not available")
-            }
+        cost = when (newVehicle.style) {
+            VehicleType.coupe -> return 18 * days
+            VehicleType.sedan -> return 18 * days
+            VehicleType.suv -> return 18 * days
+            VehicleType.pickup -> return 25 * days
+            VehicleType.diesel -> return 25 * days
+            VehicleType.semi -> return 25 * days
+            VehicleType.dirt -> return 15 * days
+            VehicleType.bullet -> return 15 * days
+            VehicleType.road -> return 15 * days
         }
-        var fee = cost * days
-        return fee
+        return cost
     }
 }
 
@@ -132,10 +135,10 @@ fun main() {
     var garage = Garage<Vehicle>()
 
     // 17: Create an array of different vehicles with different makes and years
-    var vehicle1 = Car(VehicleType.Car.sedan, 1, 2015, "Kia", "black")
-    var vehicle2 = Car(VehicleType.Car.suv, 2, 2005, "Chevy", "white")
-    var vehicle3 = Truck(VehicleType.Truck.pickup, 3, 2021, "Toyata", "silver")
-    var vehicle4 = Motorcycle(VehicleType.Motorcycle.road, 4, 2017, "Honda", "black")
+    var vehicle1 = Car(1, 2015, "Kia", "black", VehicleType.sedan)
+    var vehicle2 = Car(2, 2005, "Chevy", "white", VehicleType.suv)
+    var vehicle3 = Truck( 3, 2021, "Toyota", "silver", VehicleType.pickup)
+    var vehicle4 = Motorcycle(4, 2017, "Honda", "black", VehicleType.road)
 
     var vehicles = arrayOf(vehicle1, vehicle2, vehicle3, vehicle4)
 
@@ -143,9 +146,10 @@ fun main() {
     vehicles.forEach { vehicle ->
         val random = Random.nextInt(1,8)
         garage.store(vehicle, random) { week ->
-            // 19: Using our completion, format a print statement that tells us the color, year, make and number of days each
-            //     vehicle is being stored for. Optionally, print out the total fee as well.
-            println("The ${vehicle.color} ${vehicle.year} ${vehicle.make} has been in the lot for ${garage.calcDays()} days and owes ${garage.calcFee()}")
+            // 19: Using our completion, format a print statement that tells us the color, year, make and number of days
+            //     each vehicle is being stored for. Optionally, print out the total fee as well.
+            println("The ${vehicle.color} ${vehicle.year} ${vehicle.make} has been in the lot for ${garage.calcDays()} " +
+                    "days and owes $${garage.calcFee(vehicle)}")
         }
     }
 }
