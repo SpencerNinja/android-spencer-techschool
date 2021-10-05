@@ -46,21 +46,18 @@ interface Vehicle {
 // 7: You may want to give each class property an initial value
 // 8: Each class will have a private constructor variable called style; a VehicleType enum
 data class Car(
-//    private var subStyle: VehicleSubType,
     override var id: Int,
     override var year: Int,
     override var make: String,
     override var color: String,
     override var style: VehicleType) : Vehicle {}
 data class Truck(
-//    private var subStyle: VehicleSubType,
     override var id: Int,
     override var year: Int,
     override var make: String,
     override var color: String,
     override var style: VehicleType) : Vehicle {}
 data class Motorcycle(
-//    private var subStyle: VehicleSubType,
     override var id: Int,
     override var year: Int,
     override var make: String,
@@ -122,6 +119,7 @@ class Garage<T: Vehicle>(var listOfVehicles: MutableList<T> = mutableListOf()) {
         }
         return cost
     }
+    // TODO: Write method to determine if parking lot is full
 }
 
 //fun listAllVehicles(garage: Garage<Vehicle>) {
