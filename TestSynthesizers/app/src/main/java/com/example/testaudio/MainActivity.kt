@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.karlotoy.perfectune.instance.PerfectTune
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import java.util.*
@@ -24,8 +25,8 @@ class MainActivity : AppCompatActivity() {
         createMelody()
     }
 
-    fun createMelody() {
-        for (n in 0..melodyLength) {
+    fun createMelody(): List<Note> {
+        for (n1 in 1..melodyLength) {
             var randomFrequency = Random.nextDouble(220.0000,880.0000)
             var randomDuration = Random.nextInt(500, 2000)
             var note = Note()
@@ -34,23 +35,28 @@ class MainActivity : AppCompatActivity() {
             note.duration = randomDuration
             listOfPlayers.add(note)
         }
+        return listOfPlayers
     }
 
     var perfectTuneTest = PerfectTune()
-    fun playTune(view: View) {
+    fun playMelody(view: View) {
         if (view.id == R.id.button_sound_play) {
-            for (note in listOfPlayers) {
-                object : CountDownTimer(500, 1000) {
+            for (n2 in listOfPlayers) {
+                Log.i("note", "Step into Loop - note: ${n2.frequency}")
+                object : CountDownTimer((n2.duration.toLong()), 1000) {
                     override fun onTick(millisUntilFinished: Long) {
-                        note.library.tuneFreq = note.frequency
-                        note.library.playTune()
-                        Toast.makeText(this@MainActivity, "Freq ${note.frequency} played", Toast.LENGTH_SHORT).show()
+                        n2.library.tuneFreq = n2.frequency
+                        n2.library.playTune()
+                        Log.i("note", "onTick method: Playing note ${n2.frequency} for ${n2.duration} milliseconds")
                     }
                     override fun onFinish() {
-                        note.library.stopTune()
+                        n2.library.stopTune()
+                        Log.i("note", "onFinish method: complete")
                     }
                 }.start()
+                Log.i("note", "start CountDownTimer")
             }
+            Log.i("note", "Finished loop")
         }
     }
 
