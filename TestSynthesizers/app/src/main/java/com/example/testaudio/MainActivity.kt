@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         // Choose a random scale from the list of scales
         var scale = Scale()
         var selectedScale = scale.selectRandomScale()
+        Log.i("note", "randomFrequencyIndex = ${selectedScale}")
 
         // create a note with a frequency value and add it to a new list
         for (n1 in 1..melodyLength) {
