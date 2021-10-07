@@ -20,8 +20,6 @@ class Note() {
     }
 
     fun assignFrequency() {
-//        var randomFrequency = Random.nextDouble(220.0000,880.0000)
-//        frequency = randomFrequency
         toneObject.tuneFreq = frequency
     }
 
