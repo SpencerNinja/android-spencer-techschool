@@ -7,8 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,41 +17,46 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
-        var tvEmail = findViewById<AppCompatEditText>(R.id.et_email)
-        var tvPassword = findViewById<AppCompatEditText>(R.id.et_password)
 
-        var btnSignIn = findViewById<AppCompatButton>(R.id.btn_sign_in)
-        btnSignIn.setOnClickListener {
-            if(tvEmail.text?.length == 0 || tvPassword.text?.length == 0){
+        // Input fields for email and password
+        var email = findViewById<AppCompatEditText>(R.id.et_email)
+        var password = findViewById<AppCompatEditText>(R.id.et_password)
+
+        // Login Button
+        var loginBtn = findViewById<AppCompatButton>(R.id.btn_sign_in)
+        loginBtn.setOnClickListener {
+            if(email.text?.length == 0 || password.text?.length == 0){
                 Toast.makeText(
                     baseContext, "Enter valid details",
                     Toast.LENGTH_SHORT
                 ).show()
-            }else if(tvPassword.text?.length!! < 6){
+            }else if(password.text?.length!! < 8){
                 Toast.makeText(
-                    baseContext, "Password must be at least 6 characters",
+                    baseContext, "Password must be at least 8 characters",
                     Toast.LENGTH_SHORT
                 ).show()
             }
             else{
-                signInUser(tvEmail.text.toString(),tvPassword.text.toString())
+                signInUser(email.text.toString(),password.text.toString())
             }
         }
-        var btnSignUp = findViewById<AppCompatButton>(R.id.btn_sign_up)
-        btnSignUp.setOnClickListener {
-            if(tvEmail.text?.length == 0 || tvPassword.text?.length == 0){
+
+        // Signup Button
+        var signupBtn = findViewById<AppCompatButton>(R.id.btn_sign_up)
+        signupBtn.setOnClickListener {
+            if(email.text?.length == 0 || password.text?.length == 0){
                 Toast.makeText(
                     baseContext, "Enter valid details",
                     Toast.LENGTH_SHORT
                 ).show()
-            }else if(tvPassword.text?.length!! < 6){
+            }else if(password.text?.length!! < 8){
                 Toast.makeText(
-                    baseContext, "Password must be at least 6 characters",
+                    baseContext, "Password must be at least 8 characters",
                     Toast.LENGTH_SHORT
                 ).show()
             }
             else {
-                createNewUser(tvEmail.text.toString(), tvPassword.text.toString())
+                createNewUser(email.text.toString(), password.text.toString())
             }
         }
     }
@@ -61,7 +64,8 @@ class MainActivity : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
+//        val currentUser = auth.currentUser
+        val currentUser = null
         if (currentUser != null) {
             Toast.makeText(
                 baseContext, "Already Logged In.",
@@ -83,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     val user = auth.currentUser
                     Toast.makeText(
-                        baseContext, "Authentication Success.",
+                        baseContext, "Authentication successful.",
                         Toast.LENGTH_SHORT
                     ).show()
                     startHomeActivity()
@@ -103,7 +107,7 @@ class MainActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Toast.makeText(
-                        baseContext, "Authentication Success.",
+                        baseContext, "Authentication successful.",
                         Toast.LENGTH_SHORT
                     ).show()
                     startHomeActivity()
